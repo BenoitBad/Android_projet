@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Android_projet</string>
+    <string name="app_name">TOP QUIZ</string>
+    <string name="profileSelection_welcome">Bienvenue dans TOP QUIZ ! Choisissez votre profil :</string>
+    <string name="profileSelection_new_player">+</string>
 </resources>
