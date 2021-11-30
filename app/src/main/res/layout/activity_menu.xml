@@ -67,6 +67,7 @@
         android:id="@+id/activity_menu_imageView_star"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:contentDescription="@string/star"
         app:layout_constraintBottom_toTopOf="@+id/activity_menu_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,20 +75,23 @@
         app:srcCompat="@drawable/star" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/activity_menu_imageButton_profilSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        app:srcCompat="@drawable/sound"
-        tools:layout_editor_absoluteX="1dp" />
+        android:contentDescription="@string/menu_sound"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sound" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/activity_menu_imageButton_sound"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="#FFFFFF"
-        app:srcCompat="@drawable/profil"
-        tools:layout_editor_absoluteX="363dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:contentDescription="@string/menu_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profil" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

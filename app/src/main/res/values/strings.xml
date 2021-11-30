@@ -7,4 +7,7 @@
     <string name="menu_credits">Crédits</string>
     <string name="menu_quit">Quitter</string>
     <string name="menu_welcome_player">Bienvenue</string>
+    <string name="menu_profile">Selection du profil</string>
+    <string name="menu_sound">son</string>
+    <string name="star">étoile</string>
 </resources>
