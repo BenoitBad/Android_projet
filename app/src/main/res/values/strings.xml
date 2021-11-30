@@ -2,4 +2,9 @@
     <string name="app_name">TOP QUIZ</string>
     <string name="profileSelection_welcome">Bienvenue dans TOP QUIZ ! Choisissez votre profil :</string>
     <string name="profileSelection_new_player">+</string>
+    <string name="menu_play">Jouer</string>
+    <string name="menu_statistics">Statistiques</string>
+    <string name="menu_credits">Crédits</string>
+    <string name="menu_quit">Quitter</string>
+    <string name="menu_welcome_player">Bienvenue</string>
 </resources>
