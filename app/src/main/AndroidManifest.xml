@@ -10,7 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_projet">
         <activity
-            android:name=".MainActivity"
+            android:name=".MemoriActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controller.StatisticsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controller.ProfileSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controller.MenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
