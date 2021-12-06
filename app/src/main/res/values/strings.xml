@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">Android_projet</string>
+    <string name="app_name">TOP QUIZ</string>
+    <string name="profileSelection_welcome">Bienvenue dans TOP QUIZ ! Choisissez votre profil :</string>
+    <string name="profileSelection_new_player">+</string>
+    <string name="menu_play">Jouer</string>
+    <string name="menu_statistics">Statistiques</string>
+    <string name="menu_credits">Crédits</string>
+    <string name="menu_quit">Quitter</string>
+    <string name="menu_welcome_player">Bienvenue</string>
+    <string name="menu_profile">Selection du profil</string>
+    <string name="menu_sound">Son</string>
+    <string name="star">étoile</string>
+    <string name="statistics_back">Retour</string>
+    <string name="statistics_statistics">statistique</string>
+    <string name="statistics_nb_game_play">Nombre de partie joué :</string>
+    <string name="statistics_highscore_charlie">Plus grand score trouver charlie :</string>
+    <string name="statistics_here_statistics">Voici vos statistiques</string>
+    <string name="statistics_best_player_memorie">Meilleur joueur mémorie :</string>
+    <string name="statistics_best_player_charlie">Meilleur joueur trouver charlie :</string>
+    <string name="statistics_highscore_memorie">Plus grand score mémorie :</string>
+    <string name="statistics_best_player_classic">Meilleur joueur classique :</string>
+    <string name="statistics_highscore_classic">Plus grand score classique :</string>
 </resources>
