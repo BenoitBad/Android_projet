@@ -1,15 +1,14 @@
-package com.example.android_projet.controller;
+package com.example.android_projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import com.example.android_projet.R;
 
-public class MainActivity extends AppCompatActivity {
+public class ProfilSelectionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_profil_selection);
     }
 }
