@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_projet">
         <activity
-            android:name=".MemoriActivity"
+            android:name=".controller.MemoryActivity"
             android:exported="false" />
         <activity
             android:name=".controller.StatisticsActivity"
