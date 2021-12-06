@@ -8,6 +8,16 @@
     <string name="menu_quit">Quitter</string>
     <string name="menu_welcome_player">Bienvenue</string>
     <string name="menu_profile">Selection du profil</string>
-    <string name="menu_sound">son</string>
+    <string name="menu_sound">Son</string>
     <string name="star">étoile</string>
+    <string name="statistics_back">Retour</string>
+    <string name="statistics_statistics">statistique</string>
+    <string name="statistics_nb_game_play">Nombre de partie joué :</string>
+    <string name="statistics_highscore_charlie">Plus grand score trouver charlie :</string>
+    <string name="statistics_here_statistics">Voici vos statistiques</string>
+    <string name="statistics_best_player_memorie">Meilleur joueur mémorie :</string>
+    <string name="statistics_best_player_charlie">Meilleur joueur trouver charlie :</string>
+    <string name="statistics_highscore_memorie">Plus grand score mémorie :</string>
+    <string name="statistics_best_player_classic">Meilleur joueur classique :</string>
+    <string name="statistics_highscore_classic">Plus grand score classique :</string>
 </resources>
