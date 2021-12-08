@@ -9,4 +9,8 @@ public interface Const {
     public static final String PROFILE_2_JSON = "PROFILE_2_JSON";
     public static final String PROFILE_3_JSON = "PROFILE_3_JSON";
     public static final String PROFILE_4_JSON = "PROFILE_4_JSON";
+
+    public static final String MUSIC_SERVICE_ACTION = "MUSIC_SERVICE_ACTION";
+    public static final String PAUSE_MUSIC = "PAUSE_MUSIC";
+    public static final String RESUME_MUSIC = "RESUME_MUSIC";
 }
