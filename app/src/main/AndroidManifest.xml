@@ -16,10 +16,10 @@
             android:name=".controller.StatisticsActivity"
             android:exported="false" />
         <activity
-            android:name=".controller.ProfileSelectionActivity"
+            android:name=".controller.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".controller.MenuActivity"
+            android:name=".controller.ProfileSelectionActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

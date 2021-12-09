@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.example.android_projet.Const;
 import com.example.android_projet.R;
+import com.example.android_projet.model.Profile;
 import com.example.android_projet.service.MusicService;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class MenuActivity extends AppCompatActivity {
     ArrayList<String> mGameList;
 
     boolean mBgMusicOn;
+    Profile profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +39,15 @@ public class MenuActivity extends AppCompatActivity {
         mButtonCredit = findViewById(R.id.activity_menu_button_credit);
         mButtonExit = findViewById(R.id.activity_menu_button_exit);
 
+        // Récupère le profile
+        profile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
+        // ### DEBUG
+        System.out.println(profile);
+
         mGameList = new ArrayList<String>();
         mGameList.add("Color Memory");
 
         mBgMusicOn = true; // TODO: Valeur à recupérer dans les sharedPreferences
-        /*if(mBgMusicOn){
-            startService(new Intent(this, MusicService.class));
-        }*/
 
         mMenuButtonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +67,6 @@ public class MenuActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent gameActivityIntent = new Intent(MenuActivity.this, MemoryActivity.class);
-                        System.out.println("CLIC SUR LE BOUTON");
                         switch(which){
                             case 0:
                                 //startActivity(gameActivityIntent);

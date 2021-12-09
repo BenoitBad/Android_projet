@@ -18,6 +18,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/profileSelection_activity_button_profile2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/profileSelection_new_player"
+        android:textSize="96sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/profileSelection_activity_button_profile3"
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -33,17 +44,6 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="500dp"
-        android:layout_marginEnd="50dp"
-        android:text="@string/profileSelection_new_player"
-        android:textSize="96sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/profileSelection_activity_button_profile2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="350dp"
         android:layout_marginEnd="50dp"
         android:text="@string/profileSelection_new_player"
         android:textSize="96sp"
