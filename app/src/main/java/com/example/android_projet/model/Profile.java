@@ -8,18 +8,21 @@ public class Profile implements Parcelable {
     private int mScore;
 
     private final int mId;
+    private final Statistics stats;
 
     // Ce constructeur devrait être utilisé uniquement dans l'écran de séléction du profil et ensuite l'objet sera passé via parcelable
     public Profile(int id, String nickName) {
         mId = id;
         mNickName = nickName;
         mScore = -1;
+        stats = new Statistics(id);
     }
 
     public Profile(Parcel in) {
         mId = in.readInt();
         mNickName = in.readString();
         mScore = in.readInt();
+        stats = in.readParcelable(Statistics.class.getClassLoader());
     }
 
     public static final Creator<Profile> CREATOR = new Creator<Profile>() {
@@ -64,6 +67,7 @@ public class Profile implements Parcelable {
         dest.writeInt(mId);
         dest.writeString(mNickName);
         dest.writeInt(mScore);
+        dest.writeParcelable(stats, flags);
     }
 
     @Override
