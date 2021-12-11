@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_projet">
         <activity
-            android:name=".controller.MemoryActivity"
+            android:name=".controller.MenuActivity"
             android:exported="false" />
         <activity
             android:name=".controller.StatisticsActivity"
@@ -19,7 +19,7 @@
             android:name=".controller.ProfileSelectionActivity"
             android:exported="false" />
         <activity
-            android:name=".controller.MenuActivity"
+            android:name=".controller.MemoryActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
