@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/activity_menu_imageButton_profilSelection"
+            android:id="@+id/activity_menu_imageButton_sound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -22,7 +22,7 @@
             app:srcCompat="@drawable/sound" />
 
         <ImageButton
-            android:id="@+id/activity_menu_imageButton_sound"
+            android:id="@+id/activity_menu_imageButton_profileSelection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

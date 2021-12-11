@@ -14,4 +14,13 @@ public interface Const {
     public static final String MUSIC_SERVICE_ACTION = "MUSIC_SERVICE_ACTION";
     public static final String PAUSE_MUSIC = "PAUSE_MUSIC";
     public static final String RESUME_MUSIC = "RESUME_MUSIC";
+
+    public static final String MUSIC_INFO = "MUSIC_INFO";
+    public static final String MUSIC_ON = "MUSIC_ON";
+
+    // Games
+    public static final int ID_GAME_MEMORY = 1;
+    public static final int ID_GAME_FIND = 2;
+    public static final int ID_GAME_MATHS = 3;
+
 }

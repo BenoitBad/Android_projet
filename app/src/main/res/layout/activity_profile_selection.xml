@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".controller.ProfileSelectionActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/profileSelection_activity_imageButton_sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="#FFFFFF"
+            android:contentDescription="@string/menu_sound"
+            app:srcCompat="@drawable/sound" />
+
+    </RelativeLayout>
+
     <Button
         android:id="@+id/profileSelection_activity_button_profile1"
         android:layout_width="150dp"

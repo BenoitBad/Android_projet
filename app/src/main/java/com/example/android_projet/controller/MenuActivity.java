@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Debug;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.android_projet.Const;
 import com.example.android_projet.R;
@@ -25,10 +27,12 @@ public class MenuActivity extends AppCompatActivity {
     Button mButtonStat;
     Button mButtonCredit;
     Button mButtonExit;
+    ImageButton mSoundButton;
+    ImageButton mProfileSelectionButton;
     ArrayList<String> mGameList;
 
-    boolean mBgMusicOn;
     Profile profile;
+    MusicController mMusicController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +43,23 @@ public class MenuActivity extends AppCompatActivity {
         mButtonCredit = findViewById(R.id.activity_menu_button_credit);
         mButtonExit = findViewById(R.id.activity_menu_button_exit);
 
+
+        SharedPreferences musicPreferences = getSharedPreferences(Const.MUSIC_INFO, MODE_PRIVATE);
+        mMusicController = MusicController.getInstance(musicPreferences.getBoolean(Const.MUSIC_ON, true), this);
+        mMusicController.startMusic();
+
+        // Bouton de son
+        mSoundButton = findViewById(R.id.activity_menu_imageButton_sound);
+        mSoundButton.setOnClickListener(new SoundButtonListener(mMusicController));
+
+        mProfileSelectionButton = findViewById(R.id.activity_menu_imageButton_profileSelection);
+        mProfileSelectionButton.setOnClickListener(new ProfileSelectionButtonListener());
+
         // Récupère le profile
         profile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
-        // ### DEBUG
-        System.out.println(profile);
 
         mGameList = new ArrayList<String>();
         mGameList.add("Color Memory");
-
-        mBgMusicOn = true; // TODO: Valeur à recupérer dans les sharedPreferences
 
         mMenuButtonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,22 +103,14 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        if(mBgMusicOn){
-            Intent pauseMusicIntent = new Intent(this, MusicService.class);
-            pauseMusicIntent.putExtra(Const.MUSIC_SERVICE_ACTION, Const.PAUSE_MUSIC);
-            startService(pauseMusicIntent);
-        }
+    protected void onPause() {
+        super.onPause();
+        mMusicController.forceStopMusic();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(mBgMusicOn){
-            Intent resumeMusicIntent = new Intent(this, MusicService.class);
-            resumeMusicIntent.putExtra(Const.MUSIC_SERVICE_ACTION, Const.RESUME_MUSIC);
-            startService(resumeMusicIntent);
-        }
+        mMusicController.startMusic();
     }
 }

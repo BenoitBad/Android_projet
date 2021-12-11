@@ -25,11 +25,9 @@ public class MusicService extends Service {
         if(player != null){
             switch (action){
                 case Const.PAUSE_MUSIC:
-                    System.out.println("Pause de la musique");
                     player.pause();
                     break;
                 case Const.RESUME_MUSIC:
-                    System.out.println("Reprise de la musique");
                     player.start();
                     break;
             }

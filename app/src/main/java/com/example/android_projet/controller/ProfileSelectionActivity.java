@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.android_projet.Const;
 import com.example.android_projet.R;
@@ -27,6 +28,10 @@ public class ProfileSelectionActivity extends AppCompatActivity implements View.
     Button mProfile3;
     Button mProfile4;
 
+    ImageButton mSoundButton;
+
+    MusicController mMusicController;
+
     ArrayList<Profile> profileList;
 
     @Override
@@ -35,8 +40,16 @@ public class ProfileSelectionActivity extends AppCompatActivity implements View.
         setContentView(R.layout.activity_profile_selection);
 
         SharedPreferences preferences = getSharedPreferences(Const.PROFILES_INFO, MODE_PRIVATE);
+        SharedPreferences musicPreferences = getSharedPreferences(Const.MUSIC_INFO, MODE_PRIVATE);
 
         profileList = new ArrayList<Profile>();
+
+        mMusicController = MusicController.getInstance(musicPreferences.getBoolean(Const.MUSIC_ON, true), this);
+        mMusicController.startMusic(); // Start music only if ON
+
+        // Bouton de son
+        mSoundButton = findViewById(R.id.profileSelection_activity_imageButton_sound);
+        mSoundButton.setOnClickListener(new SoundButtonListener(this.mMusicController));
 
         Gson gson = new Gson();
         profileList.add(gson.fromJson(preferences.getString(Const.PROFILE_JSON_nb + 1, null), Profile.class));
@@ -112,5 +125,17 @@ public class ProfileSelectionActivity extends AppCompatActivity implements View.
         Intent menuIntent = new Intent(this, MenuActivity.class);
         menuIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profileList.get(idProfileSelected-1));
         startActivity(menuIntent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mMusicController.forceStopMusic();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mMusicController.startMusic();
     }
 }

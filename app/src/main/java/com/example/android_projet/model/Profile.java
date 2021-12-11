@@ -6,6 +6,7 @@ import android.os.Parcelable;
 public class Profile implements Parcelable {
     private String mNickName;
     private int mScore;
+    private int mLastGame;
 
     private final int mId;
 
@@ -14,12 +15,14 @@ public class Profile implements Parcelable {
         mId = id;
         mNickName = nickName;
         mScore = -1;
+        mLastGame = -1;
     }
 
     public Profile(Parcel in) {
         mId = in.readInt();
         mNickName = in.readString();
         mScore = in.readInt();
+        mLastGame = in.readInt();
     }
 
     public static final Creator<Profile> CREATOR = new Creator<Profile>() {
@@ -44,6 +47,8 @@ public class Profile implements Parcelable {
         return mScore;
     }
 
+    public int getLastGame() { return mLastGame; }
+
     public void setScore(int score) {
         mScore = score;
     }
@@ -53,6 +58,8 @@ public class Profile implements Parcelable {
     public void setNickName(String NickName) {
         this.mNickName = NickName;
     }
+
+    public void setLastGame(int game_id) { this.mLastGame = game_id; }
 
     @Override
     public int describeContents() {
@@ -64,10 +71,11 @@ public class Profile implements Parcelable {
         dest.writeInt(mId);
         dest.writeString(mNickName);
         dest.writeInt(mScore);
+        dest.writeInt(mLastGame);
     }
 
     @Override
     public String toString(){
-        return "Profile [" + mId + " : " + mNickName + ", " + mScore + "]";
+        return "Profile [" + mId + " : " + mNickName + ", " + mLastGame + ", " + mScore + "]";
     }
 }
