@@ -81,7 +81,7 @@ public class MenuActivity extends AppCompatActivity {
                         Intent gameActivityIntent = new Intent(MenuActivity.this, MemoryActivity.class);
                         switch(which){
                             case 0:
-                                //startActivity(gameActivityIntent);
+                                startActivity(gameActivityIntent);
                                 break;
                         }
 
