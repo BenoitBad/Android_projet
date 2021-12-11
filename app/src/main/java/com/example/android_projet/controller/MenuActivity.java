@@ -53,10 +53,11 @@ public class MenuActivity extends AppCompatActivity {
         mSoundButton.setOnClickListener(new SoundButtonListener(mMusicController));
 
         mProfileSelectionButton = findViewById(R.id.activity_menu_imageButton_profileSelection);
-        mProfileSelectionButton.setOnClickListener(new ProfileSelectionButtonListener());
+        mProfileSelectionButton.setOnClickListener(new ProfileSelectionButtonListener(this));
 
         // Récupère le profile
         profile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
+        System.out.println("Profile:" + profile);
 
         mGameList = new ArrayList<String>();
         mGameList.add("Color Memory");
