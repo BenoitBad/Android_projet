@@ -18,6 +18,9 @@ public interface Const {
     public static final String MUSIC_INFO = "MUSIC_INFO";
     public static final String MUSIC_ON = "MUSIC_ON";
 
+    // Request code
+    public static final int STATISTICS_ACTIVITY_REQUEST_CODE = 9;
+
     // Games
     public static final int ID_GAME_MEMORY = 1;
     public static final int ID_GAME_FIND = 2;

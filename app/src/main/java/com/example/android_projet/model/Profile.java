@@ -21,11 +21,11 @@ public class Profile implements Parcelable {
     }
 
     public Profile(Parcel in) {
+        stats = (Statistics) in.readParcelable(Statistics.class.getClassLoader());
         mId = in.readInt();
         mNickName = in.readString();
         mScore = in.readInt();
         mLastGame = in.readInt();
-        stats = in.readParcelable(Statistics.class.getClassLoader());
     }
 
     public static final Creator<Profile> CREATOR = new Creator<Profile>() {
@@ -52,6 +52,8 @@ public class Profile implements Parcelable {
 
     public int getLastGame() { return mLastGame; }
 
+    public Statistics getStatistics(){ return stats; }
+
     public void setScore(int score) {
         mScore = score;
     }
@@ -71,11 +73,11 @@ public class Profile implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(stats, flags);
         dest.writeInt(mId);
         dest.writeString(mNickName);
         dest.writeInt(mScore);
         dest.writeInt(mLastGame);
-        dest.writeParcelable(stats, flags);
     }
 
     @Override

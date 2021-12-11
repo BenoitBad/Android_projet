@@ -9,15 +9,18 @@
     <string name="menu_welcome_player">Bienvenue</string>
     <string name="menu_profile">Selection du profil</string>
     <string name="menu_sound">Son</string>
+
     <string name="star">étoile</string>
+
     <string name="statistics_back">Retour</string>
     <string name="statistics_statistics">statistique</string>
-    <string name="statistics_nb_game_play">Nombre de partie joué :</string>
-    <string name="statistics_highscore_charlie">Plus grand score trouver charlie :</string>
     <string name="statistics_here_statistics">Voici vos statistiques</string>
-    <string name="statistics_best_player_memorie">Meilleur joueur mémorie :</string>
-    <string name="statistics_best_player_charlie">Meilleur joueur trouver charlie :</string>
-    <string name="statistics_highscore_memorie">Plus grand score mémorie :</string>
-    <string name="statistics_best_player_classic">Meilleur joueur classique :</string>
-    <string name="statistics_highscore_classic">Plus grand score classique :</string>
+    <string name="statistics_nb_game_play">Nombre de partie jouées :</string>
+    <string name="statistics_nb_game_play_find">Nombre de partie jouées trouver charlie :</string>
+    <string name="statistics_nb_game_play_memory">Nombre de partie jouées memory :</string>
+    <string name="statistics_nb_game_play_maths">Nombre de partie jouées calculs mentaux :</string>
+    <string name="statistics_nb_score_global">Nombre total de points gagnés :</string>
+    <string name="statistics_nb_score_memory">Nombre total de points memory :</string>
+    <string name="statistics_nb_score_find">Nombre total de points trouver charlie :</string>
+    <string name="statistics_nb_score_maths">Nombre total de points calcul mentaux :</string>
 </resources>

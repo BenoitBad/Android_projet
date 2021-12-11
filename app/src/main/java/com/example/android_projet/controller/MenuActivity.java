@@ -52,8 +52,19 @@ public class MenuActivity extends AppCompatActivity {
         mSoundButton = findViewById(R.id.activity_menu_imageButton_sound);
         mSoundButton.setOnClickListener(new SoundButtonListener(mMusicController));
 
+        // Bouton selection du profil
         mProfileSelectionButton = findViewById(R.id.activity_menu_imageButton_profileSelection);
         mProfileSelectionButton.setOnClickListener(new ProfileSelectionButtonListener(this));
+
+        // Bouton stats
+        mButtonStat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent statsIntent = new Intent(MenuActivity.this, StatisticsActivity.class);
+                statsIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
+                startActivity(statsIntent);
+            }
+        });
 
         // Récupère le profile
         profile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
@@ -70,6 +81,7 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
     private void showGameList(){
+        System.out.println("Profile:" + profile);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         String[] s = Arrays.copyOf(mGameList.toArray(), mGameList.toArray().length, String[].class);
 

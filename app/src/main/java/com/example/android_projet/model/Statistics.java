@@ -10,51 +10,45 @@ public class Statistics implements Parcelable {
 
     private int mProfileId;
 
-    // ### Global
-    public int mNbConnection;
+    // Global
+    public int nb_connection;
 
-    public int mNbQuestionsAnswered;
-    public int mNbRightAnswer;
-    public int mNbWrongAnswer;
+    // Nombre de parties jouées
+    public int nb_game_play;
+    public int nb_game_play_find;
+    public int nb_game_play_memory;
+    public int nb_game_play_maths;
 
-    // ### Quizz
-    public int mNbRightAnswerQuizz;
-    public int mNbWrongAnswerQuizz;
-
-    // ### Memory
-    public int mNbRightAnswerMemory;
-    public int mNbWrongAnswerMemory;
-
-    // ### Find (ou est Charlie)
-    public int mNbRightAnswerFind;
-    public int mNbWrongAnswerFind;
+    // Score total
+    public int nb_score_global;
+    public int nb_score_memory;
+    public int nb_score_find;
+    public int nb_score_maths;
 
     public Statistics(int profileId) {
         mProfileId = profileId;
-        mNbConnection = 0;
-        mNbQuestionsAnswered = 0;
-        mNbRightAnswer = 0;
-        mNbWrongAnswer = 0;
-        mNbRightAnswerQuizz = 0;
-        mNbWrongAnswerQuizz = 0;
-        mNbRightAnswerMemory = 0;
-        mNbWrongAnswerMemory = 0;
-        mNbRightAnswerFind = 0;
-        mNbWrongAnswerFind = 0;
+        nb_connection = 0;
+        nb_game_play = 0;
+        nb_game_play_find = 0;
+        nb_game_play_memory = 0;
+        nb_game_play_maths = 0;
+        nb_score_global = 0;
+        nb_score_memory = 0;
+        nb_score_find = 0;
+        nb_score_maths = 0;
     }
 
     protected Statistics(Parcel in) {
         mProfileId = in.readInt();
-        mNbConnection = in.readInt();
-        mNbQuestionsAnswered = in.readInt();
-        mNbRightAnswer = in.readInt();
-        mNbWrongAnswer = in.readInt();
-        mNbRightAnswerQuizz = in.readInt();
-        mNbWrongAnswerQuizz = in.readInt();
-        mNbRightAnswerMemory = in.readInt();
-        mNbWrongAnswerMemory = in.readInt();
-        mNbRightAnswerFind = in.readInt();
-        mNbWrongAnswerFind = in.readInt();
+        nb_connection = in.readInt();
+        nb_game_play = in.readInt();
+        nb_game_play_find = in.readInt();
+        nb_game_play_memory = in.readInt();
+        nb_game_play_maths = in.readInt();
+        nb_score_global = in.readInt();
+        nb_score_memory = in.readInt();
+        nb_score_find = in.readInt();
+        nb_score_maths = in.readInt();
     }
 
     public static final Creator<Statistics> CREATOR = new Creator<Statistics>() {
@@ -77,20 +71,16 @@ public class Statistics implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(mProfileId);
+        dest.writeInt(nb_connection);
 
-        dest.writeInt(mNbConnection);
+        dest.writeInt(nb_game_play);
+        dest.writeInt(nb_game_play_find);
+        dest.writeInt(nb_game_play_memory);
+        dest.writeInt(nb_game_play_maths);
 
-        dest.writeInt(mNbQuestionsAnswered);
-        dest.writeInt(mNbRightAnswer);
-        dest.writeInt(mNbWrongAnswer);
-
-        dest.writeInt(mNbRightAnswerQuizz);
-        dest.writeInt(mNbWrongAnswerQuizz);
-
-        dest.writeInt(mNbRightAnswerMemory);
-        dest.writeInt(mNbWrongAnswerMemory);
-
-        dest.writeInt(mNbRightAnswerFind);
-        dest.writeInt(mNbWrongAnswerFind);
+        dest.writeInt(nb_score_global);
+        dest.writeInt(nb_score_memory);
+        dest.writeInt(nb_score_find);
+        dest.writeInt(nb_score_maths);
     }
 }
