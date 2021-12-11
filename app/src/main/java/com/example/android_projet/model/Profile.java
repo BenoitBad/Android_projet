@@ -9,6 +9,7 @@ public class Profile implements Parcelable {
     private int mLastGame;
 
     private final int mId;
+    private final Statistics stats;
 
     // Ce constructeur devrait être utilisé uniquement dans l'écran de séléction du profil et ensuite l'objet sera passé via parcelable
     public Profile(int id, String nickName) {
@@ -16,6 +17,7 @@ public class Profile implements Parcelable {
         mNickName = nickName;
         mScore = -1;
         mLastGame = -1;
+        stats = new Statistics(id);
     }
 
     public Profile(Parcel in) {
@@ -23,6 +25,7 @@ public class Profile implements Parcelable {
         mNickName = in.readString();
         mScore = in.readInt();
         mLastGame = in.readInt();
+        stats = in.readParcelable(Statistics.class.getClassLoader());
     }
 
     public static final Creator<Profile> CREATOR = new Creator<Profile>() {
@@ -72,6 +75,7 @@ public class Profile implements Parcelable {
         dest.writeString(mNickName);
         dest.writeInt(mScore);
         dest.writeInt(mLastGame);
+        dest.writeParcelable(stats, flags);
     }
 
     @Override
