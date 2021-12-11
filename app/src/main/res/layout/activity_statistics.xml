@@ -32,7 +32,6 @@
 
     </RelativeLayout>
 
-
     <ImageView
         android:id="@+id/activity_statistics_imageView_statistics"
         android:layout_width="wrap_content"
@@ -68,8 +67,6 @@
         android:layout_marginTop="12dp"
         android:text="@string/statistics_nb_score_global"
         android:textSize="16sp" />
-
-
 
     <TextView
         android:id="@+id/activity_statistics_nb_game_play_find"
