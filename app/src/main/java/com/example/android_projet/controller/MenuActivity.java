@@ -81,33 +81,37 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
     private void showGameList(){
-        System.out.println("Profile:" + profile);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        String[] s = Arrays.copyOf(mGameList.toArray(), mGameList.toArray().length, String[].class);
+        // ### TEST ###
+        Intent testIntent = new Intent(this, FindActivity.class);
+        startActivity(testIntent);
 
-
-        builder.setTitle("Well done!")
-                .setTitle("Your score is " + 2)
-                .setItems(s, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent gameActivityIntent = new Intent(MenuActivity.this, MemoryActivity.class);
-                        switch(which){
-                            case 0:
-                                startActivity(gameActivityIntent);
-                                break;
-                        }
-
-                    }
-                })
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //finish();
-                    }
-                })
-                .create()
-                .show();
+        // ###      ###
+        //AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //String[] s = Arrays.copyOf(mGameList.toArray(), mGameList.toArray().length, String[].class);
+//
+//
+        //builder.setTitle("Well done!")
+        //        .setTitle("Your score is " + 2)
+        //        .setItems(s, new DialogInterface.OnClickListener() {
+        //            @Override
+        //            public void onClick(DialogInterface dialog, int which) {
+        //                Intent gameActivityIntent = new Intent(MenuActivity.this, MemoryActivity.class);
+        //                switch(which){
+        //                    case 0:
+        //                        startActivity(gameActivityIntent);
+        //                        break;
+        //                }
+//
+        //            }
+        //        })
+        //        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        //            @Override
+        //            public void onClick(DialogInterface dialog, int which) {
+        //                //finish();
+        //            }
+        //        })
+        //        .create()
+        //        .show();
     }
 
     @Override

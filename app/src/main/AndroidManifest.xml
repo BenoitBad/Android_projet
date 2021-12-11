@@ -14,6 +14,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".controller.FindActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".controller.StatisticsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

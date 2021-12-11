@@ -5,9 +5,9 @@
         <item>Trouver l\'IUT dans cette image</item>
         <item>Trouver l\'IUT dans cette image</item>
     </array>
-    <integer-array name="questionDrawableList">
+    <array name="questionDrawableList">
         <item>@drawable/esiee_drone</item>
         <item>@drawable/esiee_drone</item>
         <item>@drawable/sound</item>
-    </integer-array>
+    </array>
 </resources>
