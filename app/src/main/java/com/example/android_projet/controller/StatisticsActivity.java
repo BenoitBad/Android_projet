@@ -65,14 +65,14 @@ public class StatisticsActivity extends AppCompatActivity {
         Statistics stats = profile.getStatistics();
 
         if(stats != null){
-            nb_game_play.append("" + stats.nb_game_play);
-            nb_game_play_find.append("" + stats.nb_game_play_find);
-            nb_game_play_memory.append("" + stats.nb_game_play_memory);
-            nb_game_play_maths.append("" + stats.nb_game_play_maths);
-            nb_score_global.append("" + stats.nb_game_play_maths);
-            nb_score_memory.append("" + stats.nb_score_memory);
-            nb_score_find.append("" + stats.nb_score_find);
-            nb_score_maths.append("" + stats.nb_score_maths);
+            nb_game_play.append(" " + stats.nb_game_play);
+            nb_game_play_find.append(" " + stats.nb_game_play_find);
+            nb_game_play_memory.append(" " + stats.nb_game_play_memory);
+            nb_game_play_maths.append(" " + stats.nb_game_play_maths);
+            nb_score_global.append(" " + stats.nb_game_play_maths);
+            nb_score_memory.append(" " + stats.nb_score_memory);
+            nb_score_find.append(" " + stats.nb_score_find);
+            nb_score_maths.append(" " + stats.nb_score_maths);
         }
     }
 
