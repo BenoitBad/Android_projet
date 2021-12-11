@@ -79,6 +79,7 @@ public class MenuActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent gameActivityIntent = new Intent(MenuActivity.this, MemoryActivity.class);
+                        gameActivityIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
                         switch(which){
                             case 0:
                                 startActivity(gameActivityIntent);

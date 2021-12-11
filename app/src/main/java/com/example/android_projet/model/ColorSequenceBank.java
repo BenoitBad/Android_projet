@@ -13,7 +13,8 @@ public class ColorSequenceBank implements QuestionBank{
 
     @Override
     public Question getNextQuestion() {
-        return cs.shuffle(currentDifficulty);
+        System.out.println("Called");
+        return cs.shuffle(++currentDifficulty);
     }
 
     @Override
