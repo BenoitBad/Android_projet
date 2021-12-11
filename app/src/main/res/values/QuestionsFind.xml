@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="questionTitleList">
+        <item>Trouver l\'ESIEE dans cette image</item>
+        <item>Trouver l\'IUT dans cette image</item>
+        <item>Trouver l\'IUT dans cette image</item>
+    </array>
+    <integer-array name="questionDrawableList">
+        <item>@drawable/esiee_drone</item>
+        <item>@drawable/esiee_drone</item>
+        <item>@drawable/sound</item>
+    </integer-array>
+</resources>
