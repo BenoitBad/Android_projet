@@ -1,5 +1,7 @@
 package com.example.android_projet.model;
 
+import java.util.List;
+
 public class ColorSequenceBank implements QuestionBank{
     private ColorSequence cs;
     private int currentDifficulty;
@@ -22,7 +24,5 @@ public class ColorSequenceBank implements QuestionBank{
     }
 
     @Override
-    public QuestionBank generateQuestion() {
-        return null;
-    }
+    public void generateQuestion(List<Question> list) {}
 }

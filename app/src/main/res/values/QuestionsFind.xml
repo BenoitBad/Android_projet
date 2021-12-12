@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <array name="questionTitleList">
         <item>Trouver l\'ESIEE dans cette image</item>
         <item>Trouver l\'IUT dans cette image</item>
@@ -9,5 +9,15 @@
         <item>@drawable/esiee_drone</item>
         <item>@drawable/esiee_drone</item>
         <item>@drawable/sound</item>
+    </array>
+    <array name="questionAnswerCoord">
+        <item>0 0</item>
+        <item>0 0</item>
+        <item>0 0</item>
+    </array>
+    <array name="questionAnswerRadius">
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
     </array>
 </resources>

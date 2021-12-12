@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/activity_find_imageButton_profilSelection"
+            android:id="@+id/activity_find_imageButton_sound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -21,29 +21,25 @@
             android:contentDescription="@string/menu_sound"
             app:srcCompat="@drawable/sound" />
 
-        <ImageButton
-            android:id="@+id/activity_find_imageButton_sound"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="#FFFFFF"
-            android:contentDescription="@string/menu_profile"
-            app:srcCompat="@drawable/profil" />
-
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        >
 
-    <ImageView
-        android:id="@+id/activity_find_question_background"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/question_bubble" />
+        <ImageView
+            android:id="@+id/activity_find_question_background"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/question_bubble" />
 
         <TextView
-            android:id="@+id/myImageViewText"
-            android:layout_width="wrap_content"
+            android:id="@+id/activity_find_question"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/activity_find_question_background"
             android:layout_alignTop="@+id/activity_find_question_background"
@@ -55,14 +51,17 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="79dp"
             android:layout_marginBottom="1dp"
+
             android:gravity="center"
-            android:text="Hello"
+            android:hint="Question"
             android:textColor="#000000" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/activity_find_answer_image"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         app:srcCompat="@drawable/esiee_drone" />
 
 </LinearLayout>
