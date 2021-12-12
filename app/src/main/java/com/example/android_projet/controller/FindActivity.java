@@ -67,6 +67,8 @@ public class FindActivity extends AppCompatActivity {
         profile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
         profile.setScore(0);
         profile.setLastGame(Const.ID_GAME_FIND);
+        profile.getStatistics().nb_game_play++;
+        profile.getStatistics().nb_game_play_find++;
 
         mImageAnswer.setOnTouchListener(new View.OnTouchListener() {
             @Override
