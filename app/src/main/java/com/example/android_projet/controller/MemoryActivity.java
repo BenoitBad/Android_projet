@@ -166,6 +166,7 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent();
+                            mProfile.getStatistics().nb_score_global += mProfile.getScore();
                             mProfile.getStatistics().nb_score_memory += mProfile.getScore();
                             intent.putExtra(Const.BUNDLE_EXTRA_PROFILE,mProfile);
                             setResult(RESULT_OK,intent);

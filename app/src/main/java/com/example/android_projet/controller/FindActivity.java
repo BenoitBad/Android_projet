@@ -82,8 +82,6 @@ public class FindActivity extends AppCompatActivity {
                     int radiusAnswer = question.getAnswerRadius();
                     if(Math.sqrt(Math.pow(event.getX() - xAnswer,2) + Math.pow(event.getY() - yAnswer,2)) < radiusAnswer){
                         profile.incrementScore();
-                        profile.getStatistics().nb_score_find++;
-                        profile.getStatistics().nb_score_global++;
                         if(nbQuestionAnswered == nbQuestionPerGame){
                             AlertDialog.Builder builder = new AlertDialog.Builder(FindActivity.this);
                             builder.setTitle("You win ! You had " + profile.getScore() + " points ! ")
@@ -122,7 +120,8 @@ public class FindActivity extends AppCompatActivity {
 
     private void backToMenu(){
         Intent intent = new Intent();
-        profile.getStatistics().nb_score_memory += profile.getScore();
+        profile.getStatistics().nb_score_find += profile.getScore();
+        profile.getStatistics().nb_score_global += profile.getScore();
         intent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
         setResult(RESULT_OK,intent);
         finish();
