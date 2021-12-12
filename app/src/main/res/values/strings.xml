@@ -29,8 +29,13 @@
     <string name="statistics_nb_score_memory">Nombre total de points memory :</string>
     <string name="statistics_nb_score_find">Nombre total de points trouver charlie :</string>
     <string name="statistics_nb_score_maths">Nombre total de points calcul mentaux :</string>
+<<<<<<< HEAD
 
     <string name ="game_lose">You lose ! You had %d points !</string>
     <string name ="game_win">You win ! You had %d points !</string>
     <string name ="memory_rules">Veuillez reproduire la séquence de couleur !</string>
+=======
+    <string name="memory_rules">Veuillez reproduire la séquence de couleur !</string>
+    <string name="calcul_rules">Veuillez choisir la bonne réponse du calcul suivant :</string>
+>>>>>>> f816e73a3175debcc4c269e9f58427ebb8bb25e9
 </resources>

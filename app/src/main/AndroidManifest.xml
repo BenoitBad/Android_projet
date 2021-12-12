@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_projet">
         <activity
+            android:name=".controller.CalculActivity"
+            android:exported="false" />
+        <activity
             android:name=".controller.MemoryActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
@@ -28,7 +31,7 @@
         <activity
             android:name=".controller.ProfileSelectionActivity"
             android:exported="true"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,6 +39,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.MusicService"></service>
+        <service android:name=".service.MusicService" />
     </application>
+
 </manifest>

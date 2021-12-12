@@ -92,6 +92,7 @@ public class MenuActivity extends AppCompatActivity {
         mGameList = new ArrayList<String>();
         mGameList.add("Color Memory");
         mGameList.add("Find");
+        mGameList.add("Calcul mental");
 
         mMenuButtonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +121,11 @@ public class MenuActivity extends AppCompatActivity {
                                 Intent findActivityIntent = new Intent(MenuActivity.this, FindActivity.class);
                                 findActivityIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
                                 startActivityForResult(findActivityIntent, Const.ID_GAME_FIND);
+                                break;
+                            case 2:
+                                Intent calculActivityIntent = new Intent(MenuActivity.this, CalculActivity.class);
+                                calculActivityIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
+                                startActivityForResult(calculActivityIntent, Const.ID_GAME_MATHS);
                         }
 
                     }
@@ -170,6 +176,14 @@ public class MenuActivity extends AppCompatActivity {
                     .putString(Const.PROFILE_JSON_nb + profile.getId(), profileJson)
                     .commit();
         } else if (requestCode == Const.ID_GAME_FIND && resultCode == RESULT_OK){
+            profile = data.getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
+            String profileJson = new GsonBuilder().create()
+                    .toJson(profile);
+            preferences.edit()
+                    .putString(Const.PROFILE_JSON_nb + profile.getId(), profileJson)
+                    .commit();
+        }
+        else if (requestCode == Const.ID_GAME_MATHS && resultCode == RESULT_OK){
             profile = data.getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
             String profileJson = new GsonBuilder().create()
                     .toJson(profile);
