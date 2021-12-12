@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TOP QUIZ</string>
+    <string name="profileSelection_welcome">Welcome to TOP QUIZ ! Select your profile :</string>
+    <string name="profileSelection_new_player">+</string>
+    <string name="menu_play">Play</string>
+    <string name="menu_statistics">Statistics</string>
+    <string name="menu_credits">Credit</string>
+    <string name="menu_quit">Exit</string>
+    <string name="menu_welcome_player">Welcome</string>
+    <string name="menu_profile">Profile selection</string>
+    <string name="menu_sound">Sound</string>
+    <string name="menu_select_game">Select your game mode !</string>
+
+    <string name="star">star</string>
+
+    <string name="credits">Created by Benoit SECHEHAYE, Loïc FAISY and Davy MU</string>
+
+    <string name="profileSelection_enter_name">Enter your name</string>
+    <string name="profileSelection_name">Name :</string>
+
+    <string name="statistics_back">Back</string>
+    <string name="statistics_statistics">Statistics</string>
+    <string name="statistics_here_statistics">These are your statistics</string>
+    <string name="statistics_nb_game_play">Number of games played :</string>
+    <string name="statistics_nb_game_play_find">Number of games find Charlie played  :</string>
+    <string name="statistics_nb_game_play_memory">Number of games memory played :</string>
+    <string name="statistics_nb_game_play_maths">Number of games mental arithmetic played :</string>
+    <string name="statistics_nb_score_global">Total points earned :</string>
+    <string name="statistics_nb_score_memory">Total points earned in memory :</string>
+    <string name="statistics_nb_score_find">Total points earned in find charlie :</string>
+    <string name="statistics_nb_score_maths">Total points earned in mental arithmetic :</string>
+
+    <string name ="game_lose">You lose ! You had %d points !</string>
+    <string name ="game_win">You win ! You had %d points !</string>
+    <string name ="memory_rules">Reproduce the color sequence !</string>
+</resources>

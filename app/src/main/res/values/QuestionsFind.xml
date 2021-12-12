@@ -46,7 +46,7 @@
         <item>604 700</item>
         <item>694 600</item>
         <item>806 850</item>
-        <item>201 417</item>-->
+        <item>201 417</item>
     </array>
     <array name="questionAnswerRadius">
         <item>190</item>
@@ -62,6 +62,6 @@
         <item>112</item>
         <item>170</item>
         <item>210</item>
-        <item>130</item>-->
+        <item>130</item>
     </array>
 </resources>

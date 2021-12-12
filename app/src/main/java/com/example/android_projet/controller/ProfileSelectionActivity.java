@@ -83,8 +83,8 @@ public class ProfileSelectionActivity extends AppCompatActivity implements View.
         } else {
             EditText input = new EditText(this);
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Entrez votre nom")
-                    .setMessage("Nom :")
+            builder.setTitle(R.string.profileSelection_enter_name)
+                    .setMessage(R.string.profileSelection_name)
                     .setView(input)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override

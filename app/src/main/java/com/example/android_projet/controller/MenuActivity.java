@@ -73,7 +73,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
-                builder.setTitle("Créé par Benoit SECHEHAYE, Loïc FAISY et Davy MU")
+                builder.setTitle(R.string.credits)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

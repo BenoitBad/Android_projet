@@ -90,7 +90,7 @@ public class FindActivity extends AppCompatActivity {
                         profile.incrementScore();
                         if(nbQuestionAnswered == nbQuestionPerGame){
                             AlertDialog.Builder builder = new AlertDialog.Builder(FindActivity.this);
-                            builder.setTitle("You win ! You had " + profile.getScore() + " points ! ")
+                            builder.setTitle(String.format(getString(R.string.game_win), profile.getScore()))
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
@@ -106,7 +106,7 @@ public class FindActivity extends AppCompatActivity {
                     }
                     System.out.println("PERDU");
                     AlertDialog.Builder builder = new AlertDialog.Builder(FindActivity.this);
-                    builder.setTitle("You lose ! You had " + profile.getScore() + " points ! ")
+                    builder.setTitle(String.format(getString(R.string.game_lose), profile.getScore()))
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {

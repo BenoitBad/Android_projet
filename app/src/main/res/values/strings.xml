@@ -9,8 +9,14 @@
     <string name="menu_welcome_player">Bienvenue</string>
     <string name="menu_profile">Selection du profil</string>
     <string name="menu_sound">Son</string>
+    <string name="menu_select_game">Choisis ton mode de jeu !</string>
 
     <string name="star">étoile</string>
+
+    <string name="credits">Créé par Benoit SECHEHAYE, Loïc FAISY et Davy MU</string>
+
+    <string name="profileSelection_enter_name">Entrez votre nom</string>
+    <string name="profileSelection_name">Nom :</string>
 
     <string name="statistics_back">Retour</string>
     <string name="statistics_statistics">statistique</string>
@@ -23,5 +29,8 @@
     <string name="statistics_nb_score_memory">Nombre total de points memory :</string>
     <string name="statistics_nb_score_find">Nombre total de points trouver charlie :</string>
     <string name="statistics_nb_score_maths">Nombre total de points calcul mentaux :</string>
+
+    <string name ="game_lose">You lose ! You had %d points !</string>
+    <string name ="game_win">You win ! You had %d points !</string>
     <string name ="memory_rules">Veuillez reproduire la séquence de couleur !</string>
 </resources>

@@ -177,7 +177,7 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
         }
         else if (!check){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("You lose ! You had " + mProfile.getScore() + " points ! ")
+            builder.setTitle(String.format(getString(R.string.game_lose), mProfile.getScore()))
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
