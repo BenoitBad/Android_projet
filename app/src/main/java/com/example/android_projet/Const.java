@@ -22,6 +22,7 @@ public interface Const {
     public static final int STATISTICS_ACTIVITY_REQUEST_CODE = 9;
 
     // Games
+    public static final int ID_MENU = 0;
     public static final int ID_GAME_MEMORY = 1;
     public static final int ID_GAME_FIND = 2;
     public static final int ID_GAME_MATHS = 3;

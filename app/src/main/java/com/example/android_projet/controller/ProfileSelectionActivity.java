@@ -1,5 +1,6 @@
 package com.example.android_projet.controller;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -51,37 +52,20 @@ public class ProfileSelectionActivity extends AppCompatActivity implements View.
         mSoundButton = findViewById(R.id.profileSelection_activity_imageButton_sound);
         mSoundButton.setOnClickListener(new SoundButtonListener(this.mMusicController));
 
-        Gson gson = new Gson();
-        profileList.add(gson.fromJson(preferences.getString(Const.PROFILE_JSON_nb + 1, null), Profile.class));
-        profileList.add(gson.fromJson(preferences.getString(Const.PROFILE_JSON_nb + 2, null), Profile.class));
-        profileList.add(gson.fromJson(preferences.getString(Const.PROFILE_JSON_nb + 3, null), Profile.class));
-        profileList.add(gson.fromJson(preferences.getString(Const.PROFILE_JSON_nb + 4, null), Profile.class));
+        getProfileList();
 
         // Tag = numéro du bouton
         mProfile1 = findViewById(R.id.profileSelection_activity_button_profile1);
         mProfile1.setTag(1);
-        if(profileList.get(0) != null){
-            mProfile1.setText(profileList.get(0).getNickName());
-            mProfile1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        }
         mProfile2 = findViewById(R.id.profileSelection_activity_button_profile2);
         mProfile2.setTag(2);
-        if(profileList.get(1) != null){
-            mProfile2.setText(profileList.get(1).getNickName());
-            mProfile2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        }
         mProfile3 = findViewById(R.id.profileSelection_activity_button_profile3);
         mProfile3.setTag(3);
-        if(profileList.get(2) != null){
-            mProfile3.setText(profileList.get(2).getNickName());
-            mProfile3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        }
         mProfile4 = findViewById(R.id.profileSelection_activity_button_profile4);
         mProfile4.setTag(4);
-        if(profileList.get(3) != null){
-            mProfile4.setText(profileList.get(3).getNickName());
-            mProfile4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        }
+
+        refreshProfiles();
+
         mProfile1.setOnClickListener(this);
         mProfile2.setOnClickListener(this);
         mProfile3.setOnClickListener(this);
@@ -121,10 +105,39 @@ public class ProfileSelectionActivity extends AppCompatActivity implements View.
         }
     }
 
+    public void refreshProfiles(){
+        if(profileList.get(0) != null){
+            mProfile1.setText(profileList.get(0).getNickName());
+            mProfile1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        }
+        if(profileList.get(1) != null){
+            mProfile2.setText(profileList.get(1).getNickName());
+            mProfile2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        }
+        if(profileList.get(2) != null){
+            mProfile3.setText(profileList.get(2).getNickName());
+            mProfile3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        }
+        if(profileList.get(3) != null){
+            mProfile4.setText(profileList.get(3).getNickName());
+            mProfile4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        }
+    }
+
+    public void getProfileList(){
+        SharedPreferences preferences = getSharedPreferences(Const.PROFILES_INFO, MODE_PRIVATE);
+        Gson gson = new Gson();
+        profileList.clear();
+        profileList.add(gson.fromJson(preferences.getString(Const.PROFILE_JSON_nb + 1, null), Profile.class));
+        profileList.add(gson.fromJson(preferences.getString(Const.PROFILE_JSON_nb + 2, null), Profile.class));
+        profileList.add(gson.fromJson(preferences.getString(Const.PROFILE_JSON_nb + 3, null), Profile.class));
+        profileList.add(gson.fromJson(preferences.getString(Const.PROFILE_JSON_nb + 4, null), Profile.class));
+    }
+
     private void GoToMenu(int idProfileSelected){
         Intent menuIntent = new Intent(this, MenuActivity.class);
         menuIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profileList.get(idProfileSelected-1));
-        startActivity(menuIntent);
+        startActivityForResult(menuIntent, Const.ID_MENU);
     }
 
     @Override
@@ -137,5 +150,22 @@ public class ProfileSelectionActivity extends AppCompatActivity implements View.
     protected void onResume() {
         super.onResume();
         mMusicController.startMusic();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        SharedPreferences preferences = getSharedPreferences(Const.PROFILES_INFO, MODE_PRIVATE);
+        Profile profile;
+        if (requestCode == Const.ID_MENU && resultCode == RESULT_OK) {
+            profile = data.getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
+            String profileJson = new GsonBuilder().create()
+                    .toJson(profile);
+            preferences.edit()
+                    .putString(Const.PROFILE_JSON_nb + profile.getId(), profileJson)
+                    .commit();
+        }
+        getProfileList();
+        refreshProfiles();
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

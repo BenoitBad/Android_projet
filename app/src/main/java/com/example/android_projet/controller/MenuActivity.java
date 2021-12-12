@@ -152,6 +152,14 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         SharedPreferences preferences = getSharedPreferences(Const.PROFILES_INFO, MODE_PRIVATE);
         if (requestCode == Const.ID_GAME_MEMORY && resultCode == RESULT_OK) {
