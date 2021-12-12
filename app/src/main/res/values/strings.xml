@@ -23,4 +23,5 @@
     <string name="statistics_nb_score_memory">Nombre total de points memory :</string>
     <string name="statistics_nb_score_find">Nombre total de points trouver charlie :</string>
     <string name="statistics_nb_score_maths">Nombre total de points calcul mentaux :</string>
+    <string name ="memory_rules">Veuillez reproduire la séquence de couleur !</string>
 </resources>
