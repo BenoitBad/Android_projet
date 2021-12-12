@@ -53,6 +53,7 @@ public class MenuActivity extends AppCompatActivity {
         // Bouton de son
         mSoundButton = findViewById(R.id.activity_menu_imageButton_sound);
         mSoundButton.setOnClickListener(new SoundButtonListener(mMusicController));
+        if (!mMusicController.getBgMusicOn()){ mSoundButton.setImageResource(R.drawable.mute_sound); }
 
         // Bouton selection du profil
         mProfileSelectionButton = findViewById(R.id.activity_menu_imageButton_profileSelection);

@@ -73,6 +73,10 @@ public class MusicController {
         }
     }
 
+    public boolean getBgMusicOn(){
+        return mBgMusicOn;
+    }
+
     public void forceStopMusic(){
         System.out.println("Pause de la musique");
         Intent pauseMusicIntent = new Intent(mContext, MusicService.class);

@@ -51,6 +51,7 @@ public class CalculActivity extends AppCompatActivity implements View.OnClickLis
         // Bouton de son
         mSoundButton = findViewById(R.id.activity_calcul_imageButton_sound);
         mSoundButton.setOnClickListener(new SoundButtonListener(mMusicController));
+        if (!mMusicController.getBgMusicOn()){ mSoundButton.setImageResource(R.drawable.mute_sound); }
 
         mCalculQuestionBank = new CalculQuestionBank();
         mCalculQuestionBank.getNextQuestion();

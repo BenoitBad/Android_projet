@@ -51,7 +51,7 @@ public class ProfileSelectionActivity extends AppCompatActivity implements View.
         // Bouton de son
         mSoundButton = findViewById(R.id.profileSelection_activity_imageButton_sound);
         mSoundButton.setOnClickListener(new SoundButtonListener(this.mMusicController));
-
+        if (!mMusicController.getBgMusicOn()){ mSoundButton.setImageResource(R.drawable.mute_sound); }
         getProfileList();
 
         // Tag = numéro du bouton

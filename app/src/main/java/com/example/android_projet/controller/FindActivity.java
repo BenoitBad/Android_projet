@@ -61,6 +61,7 @@ public class FindActivity extends AppCompatActivity {
         // Bouton de son
         mSoundButton = findViewById(R.id.activity_find_imageButton_sound);
         mSoundButton.setOnClickListener(new SoundButtonListener(mMusicController));
+        if (!mMusicController.getBgMusicOn()){ mSoundButton.setImageResource(R.drawable.mute_sound); }
 
         mImageAnswer = findViewById(R.id.activity_find_answer_image);
         mQuestion = findViewById(R.id.activity_find_question);
