@@ -24,9 +24,10 @@ public class CalculQuestion  implements Question{
         int i = 0;
         while (i < 4){
             wrongAnswer.generateCalcul(difficulty);
-            if (answer == wrongAnswer.getResult()){
+            if (answer == wrongAnswer.getResult() || manswers.contains(Integer.toString(wrongAnswer.getResult()))){
                 continue;
             }
+
             if (answerId == i){
                 manswers.add(Integer.toString(answer));
             }
