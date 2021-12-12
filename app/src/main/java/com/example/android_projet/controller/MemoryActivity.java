@@ -16,10 +16,12 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.android_projet.Const;
 import com.example.android_projet.R;
 import com.example.android_projet.model.ColorSequence;
 import com.example.android_projet.model.ColorSequenceBank;
 import com.example.android_projet.model.Profile;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -40,6 +42,8 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
 
         mColorSequenceBank = new ColorSequenceBank();
         buttonId = new ArrayList<Button>();
+        // Récupère le profile
+        mProfile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
 
         mButtonBlue = findViewById(R.id.memory_blue_btn);
         mButtonRed = findViewById(R.id.memory_red_btn);
@@ -56,6 +60,8 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
         mButtonYellow.setOnClickListener(this);
         mButtonGreen.setOnClickListener(this);
         displaySequence();
+        mProfile.incrementScore();
+        mProfile.getStatistics().nb_game_play_memory ++;
 
     }
 
@@ -71,7 +77,6 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onTick(long arg0) {
-                // TODO Auto-generated method stub
 
             }
 
@@ -104,36 +109,33 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
 
     public int getHighlightColorFromId(int id){
         int color = 0;
-        if (id == 0) {
-            color = ContextCompat.getColor(this,R.color.lightBlue_highlight);
+        switch (id){
+            case 0:
+                return ContextCompat.getColor(this,R.color.lightBlue_highlight);
+            case 1:
+                return ContextCompat.getColor(this,R.color.red_highlight);
+            case 2:
+                return ContextCompat.getColor(this,R.color.yellow_highlight);
+            case 3:
+                return ContextCompat.getColor(this,R.color.green_highlight);
+            default:
+                return 0;
         }
-        if (id == 1) {
-            color = ContextCompat.getColor(this,R.color.red_highlight);
-        }
-        if (id == 2) {
-            color = ContextCompat.getColor(this,R.color.yellow_highlight);
-        }
-        if (id == 3) {
-            color = ContextCompat.getColor(this,R.color.green_highlight);
-        }
-        return color;
     }
 
     public int getButtonColor(int id){
-        int color = 0;
-        if (id == 0) {
-            color = ContextCompat.getColor(this,R.color.lightBlue);
+        switch (id){
+            case 0:
+                return ContextCompat.getColor(this,R.color.lightBlue);
+            case 1:
+                return ContextCompat.getColor(this,R.color.red);
+            case 2:
+                return ContextCompat.getColor(this,R.color.yellow);
+            case 3:
+                return ContextCompat.getColor(this,R.color.green);
+            default:
+                return 0;
         }
-        if (id == 1) {
-            color = ContextCompat.getColor(this,R.color.red);
-        }
-        if (id == 2) {
-            color = ContextCompat.getColor(this,R.color.yellow);
-        }
-        if (id == 3) {
-            color = ContextCompat.getColor(this,R.color.green);
-        }
-        return color;
     }
 
 
@@ -147,13 +149,19 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
         if (check && c.isFinished()){
             mColorSequenceBank.getNextQuestion();
             displaySequence();
+            mProfile.incrementScore();
         }
         else if (!check){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("You lose !")
+            builder.setTitle("You lose ! You had " + mProfile.getScore() + " points ! ")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent();
+                            mProfile.getStatistics().nb_score_memory += mProfile.getScore();
+                            intent.putExtra(Const.BUNDLE_EXTRA_PROFILE,mProfile);
+                            mProfile.setScore(0);
+                            setResult(RESULT_OK,intent);
                             finish();
                         }
                     })

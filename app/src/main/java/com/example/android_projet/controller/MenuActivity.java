@@ -1,5 +1,6 @@
 package com.example.android_projet.controller;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -17,6 +18,7 @@ import com.example.android_projet.Const;
 import com.example.android_projet.R;
 import com.example.android_projet.model.Profile;
 import com.example.android_projet.service.MusicService;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -95,7 +97,7 @@ public class MenuActivity extends AppCompatActivity {
                         gameActivityIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
                         switch(which){
                             case 0:
-                                startActivity(gameActivityIntent);
+                                startActivityForResult(gameActivityIntent,Const.ID_GAME_MEMORY);
                                 break;
                         }
 
@@ -126,5 +128,19 @@ public class MenuActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mMusicController.startMusic();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        SharedPreferences preferences = getSharedPreferences(Const.PROFILES_INFO, MODE_PRIVATE);
+        if (requestCode == Const.ID_GAME_MEMORY && resultCode == RESULT_OK) {
+            profile = data.getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
+            String profileJson = new GsonBuilder().create()
+                    .toJson(profile);
+            preferences.edit()
+                    .putString(Const.PROFILE_JSON_nb + profile.getId(), profileJson)
+                    .commit();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
