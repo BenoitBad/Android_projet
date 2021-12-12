@@ -68,6 +68,23 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        // Bouton credits
+        mButtonCredit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+                builder.setTitle("Créé par Benoit SECHEHAYE, Loïc FAISY et Davy MU")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .create()
+                        .show();
+            }
+        });
+
         // Récupère le profile
         profile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
         System.out.println("Profile:" + profile);
