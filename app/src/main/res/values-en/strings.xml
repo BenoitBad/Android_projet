@@ -34,4 +34,8 @@
     <string name ="game_lose">You lose ! You had %d points !</string>
     <string name ="game_win">You win ! You had %d points !</string>
     <string name ="memory_rules">Reproduce the color sequence !</string>
+    <string name ="calcul_rules">Choose the right answer for the following calculation :</string>
+    <string name="memory">Memory</string>
+    <string name="calculation">Calculation</string>
+    <string name="Find">Find</string>
 </resources>

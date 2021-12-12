@@ -49,8 +49,9 @@ public class CalculActivity extends AppCompatActivity implements View.OnClickLis
         mMusicController.startMusic();
 
         // Bouton de son
-        mSoundButton = findViewById(R.id.activity_memory_imageButton_sound);
+        mSoundButton = findViewById(R.id.activity_calcul_imageButton_sound);
         mSoundButton.setOnClickListener(new SoundButtonListener(mMusicController));
+
         mCalculQuestionBank = new CalculQuestionBank();
         mCalculQuestionBank.getNextQuestion();
         displayCalcul();
@@ -102,13 +103,13 @@ public class CalculActivity extends AppCompatActivity implements View.OnClickLis
         }
         else{
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("You lose ! You had " + mProfile.getScore() + " points ! ")
+            builder.setTitle(String.format(getString(R.string.game_lose), mProfile.getScore()))
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent();
                             mProfile.getStatistics().nb_score_global += mProfile.getScore();
-                            mProfile.getStatistics().nb_game_play_maths += mProfile.getScore();
+                            mProfile.getStatistics().nb_score_maths += mProfile.getScore();
                             intent.putExtra(Const.BUNDLE_EXTRA_PROFILE,mProfile);
                             setResult(RESULT_OK,intent);
                             finish();
@@ -118,5 +119,17 @@ public class CalculActivity extends AppCompatActivity implements View.OnClickLis
                     .show();
         }
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mMusicController.forceStopMusic();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mMusicController.startMusic();
     }
 }

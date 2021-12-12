@@ -90,9 +90,9 @@ public class MenuActivity extends AppCompatActivity {
         System.out.println("Profile:" + profile);
 
         mGameList = new ArrayList<String>();
-        mGameList.add("Color Memory");
-        mGameList.add("Find");
-        mGameList.add("Calcul mental");
+        mGameList.add(getString(R.string.memory));
+        mGameList.add(getString(R.string.Find));
+        mGameList.add(getString(R.string.calculation));
 
         mMenuButtonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
