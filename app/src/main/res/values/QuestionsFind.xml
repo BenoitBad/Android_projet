@@ -3,21 +3,65 @@
     <array name="questionTitleList">
         <item>Trouver l\'ESIEE dans cette image</item>
         <item>Trouver l\'IUT dans cette image</item>
-        <item>Trouver l\'IUT dans cette image</item>
+        <item>Trouver la fac dans cette image</item>
+        <item>Trouver l\'école des Ponts ParisTech dans cette image</item>
+        <item>Trouver la gare de Noisy-Champs dans cette image</item>
+
+        <item>Trouver la France dans cette image</item>
+        <item>Trouver l\'Espagne dans cette image</item>
+        <item>Trouver l\'Allemagne dans cette image</item>
+        <item>Trouver la Grèce dans cette image</item>
+        <item>Trouver la Roumanie dans cette image</item>
+        <item>Trouver l\'Ukraine dans cette image</item>
+        <item>Trouver la Turquie dans cette image</item>
+        <item>Trouver le Royaume Uni dans cette image</item>
     </array>
     <array name="questionDrawableList">
         <item>@drawable/esiee_drone</item>
         <item>@drawable/esiee_drone</item>
-        <item>@drawable/sound</item>
+        <item>@drawable/esiee_drone</item>
+        <item>@drawable/esiee_drone</item>
+        <item>@drawable/esiee_drone</item>
+
+        <item>@drawable/europe</item>
+        <item>@drawable/europe</item>
+        <item>@drawable/europe</item>
+        <item>@drawable/europe</item>
+        <item>@drawable/europe</item>
+        <item>@drawable/europe</item>
+        <item>@drawable/europe</item>
+        <item>@drawable/europe</item>
     </array>
     <array name="questionAnswerCoord">
-        <item>210 180</item>
-        <item>660 440</item>
-        <item>0 0</item>
+        <item>228 300</item>
+        <item>717 733</item>
+        <item>728 288</item>
+        <item>598 167</item>
+        <item>54 167</item>
+
+        <item>257 650</item>
+        <item>139 783</item>
+        <item>389 567</item>
+        <item>562 883</item>
+        <item>604 700</item>
+        <item>694 600</item>
+        <item>806 850</item>
+        <item>201 417</item>-->
     </array>
     <array name="questionAnswerRadius">
-        <item>180</item>
-        <item>180</item>
-        <item>50</item>
+        <item>190</item>
+        <item>190</item>
+        <item>210</item>
+        <item>120</item>
+        <item>80</item>
+
+        <item>130</item>
+        <item>130</item>
+        <item>115</item>
+        <item>100</item>
+        <item>112</item>
+        <item>170</item>
+        <item>210</item>
+        <item>130</item>-->
     </array>
 </resources>

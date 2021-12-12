@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -80,7 +82,11 @@ public class FindActivity extends AppCompatActivity {
                     double xAnswer = question.getAnswerCoords().x;
                     double yAnswer = question.getAnswerCoords().y;
                     int radiusAnswer = question.getAnswerRadius();
-                    if(Math.sqrt(Math.pow(event.getX() - xAnswer,2) + Math.pow(event.getY() - yAnswer,2)) < radiusAnswer){
+                    ImageView imgView = (ImageView) v;
+                    float ratioX = 1000f / (float) imgView.getMeasuredWidth();
+                    float ratioY = 1000f / (float) imgView.getMeasuredHeight();
+                    System.out.println("Click en : x = " + event.getX() * ratioX + " y = " + event.getY() * ratioY);
+                    if(Math.sqrt(Math.pow(event.getX()*ratioX - xAnswer,2) + Math.pow(event.getY() * ratioY - yAnswer,2)) < radiusAnswer){
                         profile.incrementScore();
                         if(nbQuestionAnswered == nbQuestionPerGame){
                             AlertDialog.Builder builder = new AlertDialog.Builder(FindActivity.this);
