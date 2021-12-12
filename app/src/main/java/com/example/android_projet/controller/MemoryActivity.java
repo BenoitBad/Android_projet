@@ -66,12 +66,13 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-    public void desactivateButton(){
+    public void manageStateButton(boolean state){
         for (Button b : buttonId){
-            b.setActivated(false);
+            b.setEnabled(state);
         }
     }
     public void displaySequence(){
+        manageStateButton(false);
         Handler handler = new Handler();
         new CountDownTimer(1000, 50) {
 
@@ -82,6 +83,7 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onFinish() {
+
                 ColorSequence c = (ColorSequence) mColorSequenceBank.getCurrentQuestion();
                 for (int i = 0;i < c.size();i++){
                     Button b = buttonId.get(c.getColorId(i));
@@ -99,6 +101,11 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
                     }, 500 * ((long)i+1) + 200*i);
 
                 }
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        manageStateButton(true);
+                    }
+                }, 500 * ((long)c.size()) + 200*c.size());
 
             }
         }.start();
