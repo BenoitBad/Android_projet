@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -15,6 +16,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.android_projet.Const;
 import com.example.android_projet.R;
@@ -27,10 +29,14 @@ import java.util.ArrayList;
 
 public class MemoryActivity extends AppCompatActivity implements View.OnClickListener{
 
+    ImageButton mSoundButton;
     Button mButtonBlue;
     Button mButtonRed;
     Button mButtonYellow;
     Button mButtonGreen;
+
+    MusicController mMusicController;
+
     ColorSequenceBank mColorSequenceBank;
     ArrayList<Button> buttonId;
     Profile mProfile;
@@ -42,8 +48,18 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
 
         mColorSequenceBank = new ColorSequenceBank();
         buttonId = new ArrayList<Button>();
+
         // Récupère le profile
         mProfile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
+
+        // Music
+        SharedPreferences musicPreferences = getSharedPreferences(Const.MUSIC_INFO, MODE_PRIVATE);
+        mMusicController = MusicController.getInstance(musicPreferences.getBoolean(Const.MUSIC_ON, true), this);
+        mMusicController.startMusic();
+
+        // Bouton de son
+        mSoundButton = findViewById(R.id.activity_memory_imageButton_sound);
+        mSoundButton.setOnClickListener(new SoundButtonListener(mMusicController));
 
         mButtonBlue = findViewById(R.id.memory_blue_btn);
         mButtonRed = findViewById(R.id.memory_red_btn);
@@ -177,5 +193,17 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
                     .show();
         }
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mMusicController.forceStopMusic();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mMusicController.startMusic();
     }
 }

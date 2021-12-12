@@ -41,7 +41,7 @@ public class ProfileSelectionActivity extends AppCompatActivity implements View.
 
         SharedPreferences preferences = getSharedPreferences(Const.PROFILES_INFO, MODE_PRIVATE);
         SharedPreferences musicPreferences = getSharedPreferences(Const.MUSIC_INFO, MODE_PRIVATE);
-        
+
         profileList = new ArrayList<Profile>();
 
         mMusicController = MusicController.getInstance(musicPreferences.getBoolean(Const.MUSIC_ON, true), this);

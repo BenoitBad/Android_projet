@@ -13,22 +13,13 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/activity_menu_imageButton_profilSelection"
+            android:id="@+id/activity_memory_imageButton_sound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:background="#FFFFFF"
             android:contentDescription="@string/menu_sound"
             app:srcCompat="@drawable/sound" />
-
-        <ImageButton
-            android:id="@+id/activity_menu_imageButton_sound"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="#FFFFFF"
-            android:contentDescription="@string/menu_profile"
-            app:srcCompat="@drawable/profil" />
 
     </RelativeLayout>
     <RelativeLayout
