@@ -85,6 +85,15 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        // Bouton exit
+        mButtonExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
+            }
+        });
+
         // Récupère le profile
         profile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
         System.out.println("Profile:" + profile);
