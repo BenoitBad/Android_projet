@@ -107,7 +107,7 @@ public class MenuActivity extends AppCompatActivity {
         String[] s = Arrays.copyOf(mGameList.toArray(), mGameList.toArray().length, String[].class);
 
 
-        builder.setTitle("Choisis ton mode de jeu !")
+        builder.setTitle(getString(R.string.menu_select_game))
                 .setItems(s, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
