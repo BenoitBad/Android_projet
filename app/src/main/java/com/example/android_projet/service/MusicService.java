@@ -9,6 +9,7 @@ import android.provider.Settings;
 import androidx.annotation.Nullable;
 
 import com.example.android_projet.Const;
+import com.example.android_projet.R;
 
 public class MusicService extends Service {
     private MediaPlayer player;
@@ -33,7 +34,7 @@ public class MusicService extends Service {
             }
         } else { // Si premier lancement lance la musique
             System.out.println("Premier lancement du service");
-            player = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI);
+            player = MediaPlayer.create(this, R.raw.chip84);
             player.setLooping(true);
             player.start();
         }
