@@ -102,7 +102,7 @@ public class MenuActivity extends AppCompatActivity {
                             case 1:
                                 Intent findActivityIntent = new Intent(MenuActivity.this, FindActivity.class);
                                 findActivityIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
-                                startActivity(findActivityIntent);
+                                startActivityForResult(findActivityIntent, Const.ID_GAME_FIND);
                         }
 
                     }
@@ -138,7 +138,6 @@ public class MenuActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         SharedPreferences preferences = getSharedPreferences(Const.PROFILES_INFO, MODE_PRIVATE);
         if (requestCode == Const.ID_GAME_MEMORY && resultCode == RESULT_OK) {
-            System.out.println("Save profile MEMORY");
             profile = data.getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
             String profileJson = new GsonBuilder().create()
                     .toJson(profile);

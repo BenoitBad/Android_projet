@@ -123,7 +123,7 @@ public class FindActivity extends AppCompatActivity {
     private void backToMenu(){
         Intent intent = new Intent();
         profile.getStatistics().nb_score_memory += profile.getScore();
-        intent.putExtra(Const.BUNDLE_EXTRA_PROFILE,profile);
+        intent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
         setResult(RESULT_OK,intent);
         finish();
     }

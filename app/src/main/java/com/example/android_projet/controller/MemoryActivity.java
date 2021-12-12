@@ -61,6 +61,7 @@ public class MemoryActivity extends AppCompatActivity implements View.OnClickLis
         mButtonGreen.setOnClickListener(this);
         displaySequence();
         mProfile.setScore(0);
+        mProfile.getStatistics().nb_game_play++;
         mProfile.getStatistics().nb_game_play_memory ++;
         mProfile.setLastGame(Const.ID_GAME_MEMORY);
     }
