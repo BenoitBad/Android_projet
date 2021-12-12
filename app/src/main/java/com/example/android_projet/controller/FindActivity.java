@@ -2,6 +2,9 @@ package com.example.android_projet.controller;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Point;
@@ -40,6 +43,7 @@ public class FindActivity extends AppCompatActivity {
 
     private QuestionBank mQuestionBank;
     private int nbQuestionPerGame = 5;
+    private int nbQuestionAnswered = 0;
     private boolean mEnableTouchEvent;
 
     @Override
@@ -59,33 +63,67 @@ public class FindActivity extends AppCompatActivity {
         mImageAnswer = findViewById(R.id.activity_find_answer_image);
         mQuestion = findViewById(R.id.activity_find_question);
 
-        // TODO : Récupération du profile
-
+        // Récupère le profile
+        profile = getIntent().getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
+        profile.setScore(0);
+        profile.setLastGame(Const.ID_GAME_FIND);
 
         mImageAnswer.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                mEnableTouchEvent = false;
-                FindQuestion question = (FindQuestion) mQuestionBank.getCurrentQuestion();
-                double xAnswer = question.getAnswerCoords().x;
-                double yAnswer = question.getAnswerCoords().y;
-                int radiusAnswer = question.getAnswerRadius();
-                if(Math.sqrt(Math.pow(event.getX() - xAnswer,2) + Math.pow(event.getY() - yAnswer,2)) < radiusAnswer){
-                    profile.incrementScore();
-                    profile.getStatistics().nb_score_find++;
-                    profile.getStatistics().nb_score_global++;
-                    System.out.println("GAGNE");
-                    return true;
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    mEnableTouchEvent = false;
+                    nbQuestionAnswered++;
+                    FindQuestion question = (FindQuestion) mQuestionBank.getCurrentQuestion();
+                    double xAnswer = question.getAnswerCoords().x;
+                    double yAnswer = question.getAnswerCoords().y;
+                    int radiusAnswer = question.getAnswerRadius();
+                    if(Math.sqrt(Math.pow(event.getX() - xAnswer,2) + Math.pow(event.getY() - yAnswer,2)) < radiusAnswer){
+                        profile.incrementScore();
+                        profile.getStatistics().nb_score_find++;
+                        profile.getStatistics().nb_score_global++;
+                        if(nbQuestionAnswered == nbQuestionPerGame){
+                            AlertDialog.Builder builder = new AlertDialog.Builder(FindActivity.this);
+                            builder.setTitle("You win ! You had " + profile.getScore() + " points ! ")
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            backToMenu();
+                                        }
+                                    })
+                                    .create()
+                                    .show();
+                            return true;
+                        }
+                        loadQuestion((FindQuestion) mQuestionBank.getNextQuestion());
+                        return true;
+                    }
+                    System.out.println("PERDU");
+                    AlertDialog.Builder builder = new AlertDialog.Builder(FindActivity.this);
+                    builder.setTitle("You lose ! You had " + profile.getScore() + " points ! ")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    backToMenu();
+                                }
+                            })
+                            .create()
+                            .show();
                 }
-                System.out.println("PERDU");
-                // Perdu
-                finish();
                 return false;
             }
         });
 
         mQuestionBank = generateQuestions();
         loadQuestion((FindQuestion) mQuestionBank.getCurrentQuestion());
+    }
+
+    private void backToMenu(){
+        Intent intent = new Intent();
+        profile.getStatistics().nb_score_memory += profile.getScore();
+        intent.putExtra(Const.BUNDLE_EXTRA_PROFILE,profile);
+        setResult(RESULT_OK,intent);
+        finish();
     }
 
     @Override

@@ -11,13 +11,13 @@
         <item>@drawable/sound</item>
     </array>
     <array name="questionAnswerCoord">
-        <item>0 0</item>
-        <item>0 0</item>
+        <item>210 180</item>
+        <item>660 440</item>
         <item>0 0</item>
     </array>
     <array name="questionAnswerRadius">
-        <item>50</item>
-        <item>50</item>
+        <item>180</item>
+        <item>180</item>
         <item>50</item>
     </array>
 </resources>

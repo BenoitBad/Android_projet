@@ -1,5 +1,6 @@
 package com.example.android_projet.controller;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -17,6 +18,7 @@ import com.example.android_projet.Const;
 import com.example.android_projet.R;
 import com.example.android_projet.model.Profile;
 import com.example.android_projet.service.MusicService;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,6 +74,7 @@ public class MenuActivity extends AppCompatActivity {
 
         mGameList = new ArrayList<String>();
         mGameList.add("Color Memory");
+        mGameList.add("Find");
 
         mMenuButtonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,37 +84,37 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
     private void showGameList(){
-        // ### TEST ###
-        Intent testIntent = new Intent(this, FindActivity.class);
-        startActivity(testIntent);
+        System.out.println("Profile:" + profile);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        String[] s = Arrays.copyOf(mGameList.toArray(), mGameList.toArray().length, String[].class);
 
-        // ###      ###
-        //AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //String[] s = Arrays.copyOf(mGameList.toArray(), mGameList.toArray().length, String[].class);
-//
-//
-        //builder.setTitle("Well done!")
-        //        .setTitle("Your score is " + 2)
-        //        .setItems(s, new DialogInterface.OnClickListener() {
-        //            @Override
-        //            public void onClick(DialogInterface dialog, int which) {
-        //                Intent gameActivityIntent = new Intent(MenuActivity.this, MemoryActivity.class);
-        //                switch(which){
-        //                    case 0:
-        //                        startActivity(gameActivityIntent);
-        //                        break;
-        //                }
-//
-        //            }
-        //        })
-        //        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-        //            @Override
-        //            public void onClick(DialogInterface dialog, int which) {
-        //                //finish();
-        //            }
-        //        })
-        //        .create()
-        //        .show();
+
+        builder.setTitle("Choisis ton mode de jeu !")
+                .setItems(s, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch(which){
+                            case 0:
+                                Intent gameActivityIntent = new Intent(MenuActivity.this, MemoryActivity.class);
+                                gameActivityIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
+                                startActivityForResult(gameActivityIntent,Const.ID_GAME_MEMORY);
+                                break;
+                            case 1:
+                                Intent findActivityIntent = new Intent(MenuActivity.this, FindActivity.class);
+                                findActivityIntent.putExtra(Const.BUNDLE_EXTRA_PROFILE, profile);
+                                startActivity(findActivityIntent);
+                        }
+
+                    }
+                })
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //finish();
+                    }
+                })
+                .create()
+                .show();
     }
 
     @Override
@@ -129,5 +132,27 @@ public class MenuActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mMusicController.startMusic();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        SharedPreferences preferences = getSharedPreferences(Const.PROFILES_INFO, MODE_PRIVATE);
+        if (requestCode == Const.ID_GAME_MEMORY && resultCode == RESULT_OK) {
+            System.out.println("Save profile MEMORY");
+            profile = data.getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
+            String profileJson = new GsonBuilder().create()
+                    .toJson(profile);
+            preferences.edit()
+                    .putString(Const.PROFILE_JSON_nb + profile.getId(), profileJson)
+                    .commit();
+        } else if (requestCode == Const.ID_GAME_FIND && resultCode == RESULT_OK){
+            profile = data.getParcelableExtra(Const.BUNDLE_EXTRA_PROFILE);
+            String profileJson = new GsonBuilder().create()
+                    .toJson(profile);
+            preferences.edit()
+                    .putString(Const.PROFILE_JSON_nb + profile.getId(), profileJson)
+                    .commit();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

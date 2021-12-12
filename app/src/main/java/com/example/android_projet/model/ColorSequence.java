@@ -17,16 +17,32 @@ public class ColorSequence implements Question  {
     }
 
     public boolean checkSequenceColor(int id){
+        if (currentIndex >= mColorArrayList.size()){
+            return false;
+        }
         return mColorArrayList.get(currentIndex++) == id;
+    }
+    public boolean isFinished(){
+        return currentIndex == mColorArrayList.size();
     }
 
     public ColorSequence shuffle(int difficulty) {
+        mColorArrayList.clear();
+        currentIndex = 0;
         Random rand = new Random();
         for (int i = 0; i < difficulty ; i++) {
             int randomNum = rand.nextInt((3 - 0) + 1);
             mColorArrayList.add(randomNum);
         }
         return this;
+    }
+
+    public int getColorId(int i){
+        return mColorArrayList.get(i);
+    }
+
+    public int size(){
+        return mColorArrayList.size();
     }
 
 
