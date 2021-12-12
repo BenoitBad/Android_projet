@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/activity_menu_button_play"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="350dp"
+        android:text="@string/menu_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/activity_menu_button_stat"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/menu_statistics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_menu_button_play" />
+
+    <Button
+        android:id="@+id/activity_menu_button_credit"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/menu_credits"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_menu_button_stat" />
+
+    <Button
+        android:id="@+id/activity_menu_button_exit"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/menu_quit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_menu_button_credit" />
+
+    <TextView
+        android:id="@+id/activity_menu_textView"
+        android:layout_width="256dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="256dp"
+        android:text="@string/menu_welcome_player"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/activity_menu_button_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.854" />
+
+    <ImageView
+        android:id="@+id/activity_menu_imageView_star"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/star"
+        app:layout_constraintBottom_toTopOf="@+id/activity_menu_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.507"
+        app:srcCompat="@drawable/star" />
+
+    <ImageButton
+        android:id="@+id/activity_menu_imageButton_profilSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:contentDescription="@string/menu_sound"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sound" />
+
+    <ImageButton
+        android:id="@+id/activity_menu_imageButton_sound"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:contentDescription="@string/menu_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profil" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
