@@ -38,4 +38,19 @@
     <string name="memory">Memory</string>
     <string name="calculation">Calculation</string>
     <string name="Find">Find</string>
+
+    <string name ="ESIEE">Find l\'ESIEE in this picture</string>
+    <string name ="IUT">Find l\'IUT in this picture</string>
+    <string name ="FAC">Find the college in this picture</string>
+    <string name ="PONT">Find Ponts ParisTech school in this picture</string>
+    <string name ="GARE">Find Noisy-Champs station in this picture</string>
+
+    <string name ="FR">Find France in this picture</string>
+    <string name ="ES">Find Spain in this picture</string>
+    <string name ="DE">Find Germany in this picture</string>
+    <string name ="GR">Find Greece in this picture</string>
+    <string name ="RM">Find Romania in this picture</string>
+    <string name ="UR">Find Ukraine in this picture</string>
+    <string name ="TQ">Find Turkey in this picture</string>
+    <string name ="UK">Find the United Kingdom in this picture</string>
 </resources>

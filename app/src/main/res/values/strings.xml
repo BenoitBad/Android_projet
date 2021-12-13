@@ -37,4 +37,19 @@
     <string name="memory">Memory</string>
     <string name="calculation">Calcul mental</string>
     <string name="Find">Trouver charlie</string>
+
+    <string name ="ESIEE">Trouver l\'ESIEE dans cette image</string>
+    <string name ="IUT">Trouver l\'IUT dans cette image</string>
+    <string name ="FAC">Trouver la fac dans cette image</string>
+    <string name ="PONT">Trouver l\'école des Ponts ParisTech dans cette image</string>
+    <string name ="GARE">Trouver la gare de Noisy-Champs dans cette image</string>
+
+    <string name ="FR">Trouver la France dans cette image</string>
+    <string name ="ES">Trouver l\'Espagne dans cette image</string>
+    <string name ="DE">Trouver l\'Allemagne dans cette image</string>
+    <string name ="GR">Trouver la Grèce dans cette image</string>
+    <string name ="RM">Trouver la Roumanie dans cette image</string>
+    <string name ="UR">Trouver l\'Ukraine dans cette image</string>
+    <string name ="TQ">Trouver la Turquie dans cette image</string>
+    <string name ="UK">Trouver le Royaume Uni dans cette image</string>
 </resources>

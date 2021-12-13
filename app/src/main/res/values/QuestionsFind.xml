@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <array name="questionTitleList">
-        <item>Trouver l\'ESIEE dans cette image</item>
-        <item>Trouver l\'IUT dans cette image</item>
-        <item>Trouver la fac dans cette image</item>
-        <item>Trouver l\'école des Ponts ParisTech dans cette image</item>
-        <item>Trouver la gare de Noisy-Champs dans cette image</item>
+        <item>@string/ESIEE</item>
+        <item>@string/IUT</item>
+        <item>@string/FAC</item>
+        <item>@string/PONT</item>
+        <item>@string/GARE</item>
 
-        <item>Trouver la France dans cette image</item>
-        <item>Trouver l\'Espagne dans cette image</item>
-        <item>Trouver l\'Allemagne dans cette image</item>
-        <item>Trouver la Grèce dans cette image</item>
-        <item>Trouver la Roumanie dans cette image</item>
-        <item>Trouver l\'Ukraine dans cette image</item>
-        <item>Trouver la Turquie dans cette image</item>
-        <item>Trouver le Royaume Uni dans cette image</item>
+        <item>@string/FR</item>
+        <item>@string/ES</item>
+        <item>@string/DE</item>
+        <item>@string/GR</item>
+        <item>@string/RM</item>
+        <item>@string/UR</item>
+        <item>@string/TQ</item>
+        <item>@string/UK</item>
     </array>
     <array name="questionDrawableList">
         <item>@drawable/esiee_drone</item>
