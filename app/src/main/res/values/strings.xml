@@ -30,8 +30,8 @@
     <string name="statistics_nb_score_find">Nombre total de points trouver charlie :</string>
     <string name="statistics_nb_score_maths">Nombre total de points calcul mentaux :</string>
 
-    <string name ="game_lose">You lose ! You had %d points !</string>
-    <string name ="game_win">You win ! You had %d points !</string>
+    <string name ="game_lose">Vous avez perdu ! Vous avez %d points !</string>
+    <string name ="game_win">Vous avez gagné ! Vous avez %d points !</string>
     <string name ="memory_rules">Veuillez reproduire la séquence de couleur !</string>
     <string name ="calcul_rules">Veuillez choisir la bonne réponse du calcul suivant :</string>
     <string name="memory">Memory</string>
